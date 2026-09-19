@@ -1,0 +1,56 @@
+/*
+ * ------------------------------------------------------------------
+ *  Slidev Theme - Lapis - code blocks
+ *  The colors themselves come from the Shiki themes in `setup/`,
+ *  everything here is about the frame around the code.
+ * ------------------------------------------------------------------
+ */
+
+/* ---------- line numbers ---------- */
+
+.slidev-code-line-numbers .slidev-code code .line::before {
+  color: var(--lapis-code-line-number);
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+/* ---------- highlighted lines (` ```ts {1-2} `) ---------- */
+
+.slidev-code .line.highlighted,
+.slidev-code .slidev-code-highlighted {
+  border-radius: 3px;
+  background-color: var(--lapis-code-line-highlight);
+}
+
+/* ---------- code block title / tabs ---------- */
+
+.slidev-code-block-title {
+  font-family: var(--slidev-code-font-family);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+.slidev-code-group-tabs {
+  font-family: var(--slidev-code-font-family);
+}
+
+/* ---------- scrollbars ---------- */
+
+.slidev-code::-webkit-scrollbar,
+.slidev-code-wrapper::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.slidev-code::-webkit-scrollbar-track,
+.slidev-code-wrapper::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: transparent;
+}
+
+.slidev-code::-webkit-scrollbar-thumb,
+.slidev-code-wrapper::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: var(--lapis-marker);
+  opacity: 0.6;
+}

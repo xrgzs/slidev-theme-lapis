@@ -1,0 +1,4 @@
+---
+theme: ./
+src: ./example.md
+---

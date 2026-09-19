@@ -1,0 +1,558 @@
+/*
+ * ------------------------------------------------------------------
+ *  Slidev Theme - Lapis
+ *  A clean, blue-toned theme ported from typora-theme-lapis
+ *  https://github.com/xrgzs/typora-theme-lapis
+ * ------------------------------------------------------------------
+ */
+
+/* ================================================================
+ *  1. Design tokens
+ * ================================================================ */
+
+:root {
+  /* Slidev primary color, drives `text-primary`, `bg-primary`, `border-primary` */
+  --slidev-theme-primary: #4870ac;
+
+  /* ---------------------------------------------------------------
+   *  Lapis palette - light
+   * --------------------------------------------------------------- */
+  --lapis-text: #40464f;
+  --lapis-text-muted: #7b838f;
+  --lapis-heading: #4870ac;
+  --lapis-bg: #ffffff;
+  --lapis-bg-block: #f6f8fa;
+  --lapis-border: #d9dfe4;
+  --lapis-border-soft: #eef2f5;
+  --lapis-marker: #a2b6d4;
+  --lapis-source: #a8a8a9;
+  --lapis-highlight: #ffffb5c2;
+  --lapis-pill-bg: #4870ac;
+  --lapis-pill-fg: #ffffff;
+  --lapis-glow-strong: rgba(72, 112, 172, 0.16);
+  --lapis-glow-soft: rgba(72, 112, 172, 0.08);
+  --lapis-img-shadow: rgba(227, 232, 240, 0.95);
+
+  /* Code */
+  --lapis-code-bg: #f6f8fa;
+  --lapis-code-fg: #4f5467;
+  --lapis-code-inline: #4870ac;
+  --lapis-code-line-number: #a2b6d4;
+  --lapis-code-line-highlight: rgba(72, 112, 172, 0.1);
+
+  /* Markdown alerts (NOTE / TIP / IMPORTANT / WARNING / CAUTION) */
+  --color-note: #527da8;
+  --color-tip: #428485;
+  --color-important: #614f9c;
+  --color-warning: #a88652;
+  --color-caution: #a34f55;
+
+  /* ---------------------------------------------------------------
+   *  Slidev code block appearance
+   * --------------------------------------------------------------- */
+  --slidev-code-background: var(--lapis-code-bg);
+  --slidev-code-foreground: var(--lapis-code-fg);
+  --slidev-code-font-size: 13px;
+  --slidev-code-line-height: 20px;
+  --slidev-code-padding: 14px;
+  --slidev-code-radius: 8px;
+  --slidev-code-margin: 10px 0;
+  --slidev-code-tab-divider: rgba(162, 182, 212, 0.35);
+  --slidev-code-tab-text-color: var(--lapis-source);
+  --slidev-code-tab-active-text-color: var(--lapis-heading);
+  --slidev-code-tab-font-size: 12px;
+
+  /* Canvas behind the slides */
+  --slidev-slide-container-background: var(--lapis-bg);
+}
+
+html.dark {
+  --slidev-theme-primary: #8393ad;
+
+  /* ---------------------------------------------------------------
+   *  Lapis palette - dark
+   * --------------------------------------------------------------- */
+  --lapis-text: #e4e4e4;
+  --lapis-text-muted: #98a1b0;
+  --lapis-heading: #8393ad;
+  --lapis-bg: #1e222a;
+  --lapis-bg-block: #2a2f3b;
+  --lapis-border: #47556d;
+  --lapis-border-soft: #2f3644;
+  --lapis-marker: #7d8a9f;
+  --lapis-source: #7d8a9f;
+  --lapis-pill-bg: #47556d;
+  --lapis-pill-fg: #e4e4e4;
+  --lapis-glow-strong: rgba(131, 147, 173, 0.16);
+  --lapis-glow-soft: rgba(131, 147, 173, 0.08);
+  --lapis-img-shadow: transparent;
+
+  --lapis-code-bg: #080e1d;
+  --lapis-code-fg: #abbad4;
+  --lapis-code-inline: #abbad4;
+  --lapis-code-line-number: #7d8a9f;
+  --lapis-code-line-highlight: rgba(131, 147, 173, 0.14);
+
+  --color-note: #83a4c4;
+  --color-tip: #81b3a7;
+  --color-important: #968abd;
+  --color-warning: #b3a17c;
+  --color-caution: #b8797e;
+
+  --slidev-code-tab-divider: rgba(71, 85, 109, 0.6);
+}
+
+/* ================================================================
+ *  2. Slide canvas
+ * ================================================================ */
+
+html,
+body,
+#app,
+#page-root,
+.slidev-layout,
+html:not(.dark) .slidev-slide-content,
+html.dark .slidev-slide-content {
+  background-color: var(--lapis-bg);
+}
+
+/* ================================================================
+ *  3. Base typography
+ * ================================================================ */
+
+.slidev-layout {
+  @apply px-14 py-10 font-sans;
+
+  color: var(--lapis-text);
+  font-size: 1.1rem;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+  overflow-wrap: break-word;
+}
+
+/* ---------- headings ---------- */
+
+.slidev-layout h1,
+.slidev-layout h2,
+.slidev-layout h3,
+.slidev-layout h4,
+.slidev-layout h5,
+.slidev-layout h6 {
+  @apply font-serif font-bold;
+
+  padding: 0;
+  color: var(--lapis-heading);
+  text-wrap: balance;
+}
+
+.slidev-layout h1 {
+  margin: 0 0 1rem;
+  font-size: 2.1rem;
+  line-height: 1.35;
+  text-align: center;
+}
+
+/* The subtitle right below a title */
+.slidev-layout h1 + p {
+  margin-top: -0.35rem;
+  color: var(--lapis-text-muted);
+  text-align: center;
+}
+
+/* `h2` - the signature Lapis "filled" heading */
+.slidev-layout h2 {
+  display: inline-block;
+  margin: 0.7rem 0 0.9rem;
+  padding: 0.08em 0.55em;
+  border-radius: 4px;
+  background-color: var(--lapis-pill-bg);
+  color: var(--lapis-pill-fg);
+  font-size: 1.45rem;
+  line-height: 1.5;
+}
+
+.slidev-layout h2 a,
+.slidev-layout h2 code,
+.slidev-layout h2 em,
+.slidev-layout h2 strong {
+  border-bottom: 0;
+  background: transparent;
+  color: inherit;
+}
+
+.slidev-layout h3 {
+  margin: 1.1rem 0 0.6rem;
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+
+.slidev-layout h4 {
+  margin: 0.9rem 0 0.5rem;
+  font-size: 1.15rem;
+}
+
+.slidev-layout h5 {
+  margin: 0.7rem 0 0.4rem;
+  font-size: 1.05rem;
+}
+
+.slidev-layout h6 {
+  margin: 0.6rem 0 0.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  opacity: 1;
+}
+
+/* Inside a panel the `h2` should not look like a pill */
+.slidev-layout blockquote h2,
+.slidev-layout .markdown-alert h2,
+.slidev-layout .lapis-card h2 {
+  padding: 0;
+  background: transparent;
+  color: var(--lapis-heading);
+}
+
+/* ---------- text ---------- */
+
+.slidev-layout p {
+  @apply my-3;
+}
+
+.slidev-layout b,
+.slidev-layout strong {
+  color: var(--lapis-heading);
+  font-weight: 600;
+}
+
+.slidev-layout a {
+  border-bottom: 0;
+  color: var(--lapis-heading);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: opacity 0.2s ease;
+}
+
+.slidev-layout a:hover {
+  opacity: 0.75;
+}
+
+.slidev-layout mark {
+  padding: 1px 0.15rem;
+  border-radius: 2px;
+  background-color: var(--lapis-highlight);
+  color: inherit;
+}
+
+html.dark .slidev-layout mark {
+  color: var(--lapis-bg);
+}
+
+.slidev-layout kbd {
+  @apply font-mono;
+
+  color: var(--lapis-heading);
+  border-color: var(--lapis-border);
+}
+
+.slidev-layout hr {
+  margin: 1.5rem 0;
+  border: 0;
+  border-top: 1px solid var(--lapis-border-soft);
+  border-radius: 2px;
+}
+
+html.dark .slidev-layout hr {
+  border-top-color: var(--lapis-border);
+}
+
+/* ---------- lists ---------- */
+
+.slidev-layout ul {
+  list-style-type: disc;
+}
+
+.slidev-layout ul ul {
+  list-style-type: square;
+}
+
+.slidev-layout ol {
+  list-style-type: decimal;
+}
+
+.slidev-layout li {
+  margin: 0.35rem 0;
+  line-height: 1.7;
+}
+
+.slidev-layout li::marker {
+  color: var(--lapis-marker);
+  font-weight: 700;
+}
+
+.slidev-layout li > p {
+  margin: 0;
+}
+
+/* ---------- quotes ---------- */
+
+.slidev-layout blockquote:not(.markdown-alert) {
+  margin: 1rem 0;
+  padding: 0.85rem 1.25rem;
+  border: 0;
+  border-left: 3px solid var(--slidev-theme-primary);
+  border-radius: 0 6px 6px 0;
+  background-color: var(--lapis-bg-block);
+  color: var(--lapis-text);
+  font-size: 1rem;
+}
+
+.slidev-layout blockquote:not(.markdown-alert) > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* ---------- markdown alerts ---------- */
+
+.slidev-layout .markdown-alert {
+  margin: 1rem 0;
+  padding: 0.75rem 1.15rem;
+  border-left-width: 3px;
+  border-left-style: solid;
+  border-radius: 0 6px 6px 0;
+  background-color: var(--lapis-bg-block);
+  font-size: 1rem;
+}
+
+.slidev-layout .markdown-alert .markdown-alert-title {
+  @apply font-serif font-bold;
+
+  margin-top: 0;
+  margin-bottom: 0.15rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.slidev-layout .markdown-alert p {
+  margin: 0.3rem 0;
+}
+
+/* ---------- tables ---------- */
+
+.slidev-layout table {
+  width: 100%;
+  margin: 0.5rem 0 1rem;
+  border-spacing: 0;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+.slidev-layout tr {
+  border: 0;
+}
+
+.slidev-layout th,
+.slidev-layout td {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--lapis-border);
+  text-align: left;
+  transition: background-color 0.15s ease;
+}
+
+.slidev-layout th {
+  @apply font-serif font-bold;
+
+  min-width: 6rem;
+  color: var(--lapis-heading);
+  text-align: center;
+}
+
+.slidev-layout th:hover,
+.slidev-layout td:hover {
+  background-color: var(--lapis-bg-block);
+}
+
+/* ---------- media ---------- */
+
+.slidev-layout img {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.slidev-layout p > img:only-child,
+.slidev-layout .md-image:only-child img {
+  display: block;
+  filter: drop-shadow(var(--lapis-img-shadow) 0 6px 6px);
+}
+
+/* ---------- inline code ---------- */
+
+.slidev-layout :not(pre) > code {
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+  background-color: var(--lapis-code-bg);
+  color: var(--lapis-code-inline);
+  font-family: var(--slidev-code-font-family);
+  font-size: 0.92em;
+  font-weight: 400;
+  overflow-wrap: break-word;
+}
+
+/* ================================================================
+ *  4. Components
+ * ================================================================ */
+
+/* ---------- <LapisCard> ---------- */
+
+.lapis-card {
+  display: block;
+  margin: 1rem 0;
+  padding: 0.85rem 1.15rem;
+  border: 1px solid var(--lapis-border);
+  border-left: 3px solid var(--lapis-border);
+  border-radius: 8px;
+  background-color: var(--lapis-bg-block);
+  color: var(--lapis-text);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.lapis-card > *:first-child {
+  margin-top: 0;
+}
+
+.lapis-card > *:last-child {
+  margin-bottom: 0;
+}
+
+.lapis-card-title {
+  @apply font-serif font-bold;
+
+  display: flex;
+  margin-bottom: 0.3rem;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1.05rem;
+  color: var(--lapis-heading);
+}
+
+.lapis-card-icon {
+  font-size: 1.1em;
+  line-height: 1;
+}
+
+.lapis-card-primary {
+  border-left-color: var(--slidev-theme-primary);
+}
+
+.lapis-card-primary .lapis-card-title {
+  color: var(--slidev-theme-primary);
+}
+
+.lapis-card-note {
+  border-left-color: var(--color-note);
+}
+
+.lapis-card-note .lapis-card-title {
+  color: var(--color-note);
+}
+
+.lapis-card-tip {
+  border-left-color: var(--color-tip);
+}
+
+.lapis-card-tip .lapis-card-title {
+  color: var(--color-tip);
+}
+
+.lapis-card-important {
+  border-left-color: var(--color-important);
+}
+
+.lapis-card-important .lapis-card-title {
+  color: var(--color-important);
+}
+
+.lapis-card-warning {
+  border-left-color: var(--color-warning);
+}
+
+.lapis-card-warning .lapis-card-title {
+  color: var(--color-warning);
+}
+
+.lapis-card-caution {
+  border-left-color: var(--color-caution);
+}
+
+.lapis-card-caution .lapis-card-title {
+  color: var(--color-caution);
+}
+
+.lapis-card-plain {
+  border-left-color: var(--lapis-border);
+  background-color: transparent;
+}
+
+.lapis-card-plain .lapis-card-title {
+  color: var(--lapis-heading);
+}
+
+/* ---------- <LapisPill> ---------- */
+
+.lapis-pill {
+  display: inline-block;
+  padding: 0.02em 0.5em;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: 600;
+  line-height: 1.7;
+  white-space: nowrap;
+}
+
+.lapis-pill-primary {
+  background-color: var(--lapis-pill-bg);
+  color: var(--lapis-pill-fg);
+}
+
+.lapis-pill-plain {
+  border-color: var(--lapis-border);
+  background-color: var(--lapis-bg-block);
+  color: var(--lapis-heading);
+}
+
+.lapis-pill-note,
+.lapis-pill-tip,
+.lapis-pill-important,
+.lapis-pill-warning,
+.lapis-pill-caution {
+  background-color: transparent;
+}
+
+.lapis-pill-note {
+  border-color: var(--color-note);
+  color: var(--color-note);
+}
+
+.lapis-pill-tip {
+  border-color: var(--color-tip);
+  color: var(--color-tip);
+}
+
+.lapis-pill-important {
+  border-color: var(--color-important);
+  color: var(--color-important);
+}
+
+.lapis-pill-warning {
+  border-color: var(--color-warning);
+  color: var(--color-warning);
+}
+
+.lapis-pill-caution {
+  border-color: var(--color-caution);
+  color: var(--color-caution);
+}

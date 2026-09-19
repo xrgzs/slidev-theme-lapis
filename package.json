@@ -1,0 +1,53 @@
+{
+  "name": "slidev-theme-lapis",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "A clean blue-toned theme for Slidev, ported from typora-theme-lapis",
+  "keywords": [
+    "slidev-theme",
+    "slidev",
+    "lapis"
+  ],
+  "license": "MIT",
+  "author": "MadDogOwner",
+  "homepage": "https://github.com/xrgzs/slidev-theme-lapis",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xrgzs/slidev-theme-lapis.git"
+  },
+  "bugs": "https://github.com/xrgzs/slidev-theme-lapis/issues",
+  "engines": {
+    "node": ">=18.0.0",
+    "slidev": ">=0.48.0"
+  },
+  "scripts": {
+    "dev": "slidev example.md --open",
+    "build": "slidev build example.md",
+    "export": "slidev export example.md",
+    "screenshot": "slidev export example.md --format png"
+  },
+  "dependencies": {
+    "@slidev/types": "^53.0.0"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^53.0.0"
+  },
+  "//": "Learn more: https://sli.dev/guide/write-theme.html",
+  "slidev": {
+    "colorSchema": "both",
+    "defaults": {
+      "transition": "fade",
+      "fonts": {
+        "sans": "Inter",
+        "serif": "Noto Serif SC",
+        "mono": "JetBrains Mono",
+        "weights": [
+          "200",
+          "400",
+          "600",
+          "700"
+        ]
+      }
+    }
+  }
+}
