@@ -8,7 +8,7 @@ A clean, blue-toned theme for [Slidev](https://github.com/slidevjs/slidev), port
 - Serif (思源宋体 / Noto Serif SC) headings, Inter body text, JetBrains Mono code
 - The signature `h2` "pill" heading, tinted list markers and a blue left rule for quotes
 - Light & dark variants of every single token, plus custom Shiki themes for code
-- Extra layouts (`cover`, `intro`, `section`, `quote`, `fact`, `statement`, `end`) and two components
+- Extra layouts (`cover`, `intro`, `section`, `quote`, `fact`, `statement`, `end`) and a `<LapisPill>` badge component
 
 ## Install
 
@@ -63,25 +63,9 @@ Author · 2026
 
 ## Components
 
-### `<LapisCard>`
-
-A bordered panel for grouping content, with the same tones as the markdown alerts.
-
-```md
-<LapisCard title="Title" tone="tip" icon="i-carbon-lightbulb">
-Content, markdown supported.
-</LapisCard>
-```
-
-| Prop | Default | Description |
-| --- | --- | --- |
-| `title` | `''` | Optional title, rendered in the serif title font |
-| `tone` | `primary` | `primary`, `plain`, `note`, `tip`, `important`, `warning`, `caution` |
-| `icon` | `''` | Optional UnoCSS icon class, e.g. `i-carbon-lightbulb` |
-
-### `<LapisPill>`
-
-An inline badge that reuses the `h2` pill style.
+The theme ships a single component — `<LapisPill>`, an inline badge that reuses the `h2` pill style.
+Block-level callouts deliberately need no component: GitHub alerts (`> [!NOTE]`) and blockquotes are
+already tone-colored and bordered by the stylesheet.
 
 ```md
 <LapisPill>New</LapisPill> <LapisPill tone="warning">warning</LapisPill>
@@ -164,7 +148,7 @@ The repository layout follows the official
 ```
 slidev-theme-lapis/
 ├── layouts/      # cover, intro, section, quote, fact, statement, end
-├── components/   # LapisCard, LapisPill
+├── components/   # LapisPill
 ├── styles/       # lapis.css (tokens & typography), layouts.css, code.css
 ├── setup/        # shiki.ts + custom Shiki themes
 ├── layoutHelper.ts

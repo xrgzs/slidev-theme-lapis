@@ -129,15 +129,16 @@ Display blocks inherit the theme fonts and the primary color.
 
 # Components
 
-<LapisCard title="LapisCard" tone="primary">
-A bordered panel for grouping content. `tone` accepts `primary`, `plain`, `note`, `tip`, `important`, `warning` and `caution`.
-</LapisCard>
+## Pills
 
-<LapisCard title="Consistent tones" tone="tip">
-Cards share the tones of the markdown alerts, so panels and callouts stay visually consistent.
-</LapisCard>
+<LapisPill>New</LapisPill> <LapisPill tone="plain">plain</LapisPill> <LapisPill tone="tip">tip</LapisPill> <LapisPill tone="warning">warning</LapisPill> <LapisPill tone="caution">caution</LapisPill>
 
-Pills are inline: <LapisPill>New</LapisPill> <LapisPill tone="plain">plain</LapisPill> <LapisPill tone="tip">tip</LapisPill> <LapisPill tone="warning">warning</LapisPill>
+`<LapisPill>` is the only component the theme ships — an inline badge that reuses the `h2` pill style, in every alert tone.
+
+Block-level callouts need no component: GitHub alerts and blockquotes already carry the borders and tones of the theme.
+
+> [!TIP]
+> Less API, more Markdown.
 
 ---
 layout: two-cols

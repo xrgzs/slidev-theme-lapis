@@ -205,10 +205,9 @@ html.dark .slidev-slide-content {
   opacity: 1;
 }
 
-/* Inside a panel the `h2` should not look like a pill */
+/* Inside a callout the `h2` should not look like a pill */
 .slidev-layout blockquote h2,
-.slidev-layout .markdown-alert h2,
-.slidev-layout .lapis-card h2 {
+.slidev-layout .markdown-alert h2 {
   padding: 0;
   background: transparent;
   color: var(--lapis-heading);
@@ -412,102 +411,6 @@ html.dark .slidev-layout hr {
 /* ================================================================
  *  4. Components
  * ================================================================ */
-
-/* ---------- <LapisCard> ---------- */
-
-.lapis-card {
-  display: block;
-  margin: 1rem 0;
-  padding: 0.85rem 1.15rem;
-  border: 1px solid var(--lapis-border);
-  border-left: 3px solid var(--lapis-border);
-  border-radius: 8px;
-  background-color: var(--lapis-bg-block);
-  color: var(--lapis-text);
-  font-size: 1rem;
-  line-height: 1.7;
-}
-
-.lapis-card > *:first-child {
-  margin-top: 0;
-}
-
-.lapis-card > *:last-child {
-  margin-bottom: 0;
-}
-
-.lapis-card-title {
-  @apply font-serif font-bold;
-
-  display: flex;
-  margin-bottom: 0.3rem;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 1.05rem;
-  color: var(--lapis-heading);
-}
-
-.lapis-card-icon {
-  font-size: 1.1em;
-  line-height: 1;
-}
-
-.lapis-card-primary {
-  border-left-color: var(--slidev-theme-primary);
-}
-
-.lapis-card-primary .lapis-card-title {
-  color: var(--slidev-theme-primary);
-}
-
-.lapis-card-note {
-  border-left-color: var(--color-note);
-}
-
-.lapis-card-note .lapis-card-title {
-  color: var(--color-note);
-}
-
-.lapis-card-tip {
-  border-left-color: var(--color-tip);
-}
-
-.lapis-card-tip .lapis-card-title {
-  color: var(--color-tip);
-}
-
-.lapis-card-important {
-  border-left-color: var(--color-important);
-}
-
-.lapis-card-important .lapis-card-title {
-  color: var(--color-important);
-}
-
-.lapis-card-warning {
-  border-left-color: var(--color-warning);
-}
-
-.lapis-card-warning .lapis-card-title {
-  color: var(--color-warning);
-}
-
-.lapis-card-caution {
-  border-left-color: var(--color-caution);
-}
-
-.lapis-card-caution .lapis-card-title {
-  color: var(--color-caution);
-}
-
-.lapis-card-plain {
-  border-left-color: var(--lapis-border);
-  background-color: transparent;
-}
-
-.lapis-card-plain .lapis-card-title {
-  color: var(--lapis-heading);
-}
 
 /* ---------- <LapisPill> ---------- */
 
