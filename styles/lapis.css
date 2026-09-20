@@ -282,6 +282,15 @@ html.dark .slidev-layout hr {
   list-style-type: decimal;
 }
 
+/*
+ * Slidev's CSS reset removes the default list padding, so indentation is
+ * driven by `li { margin-left: 1.1em }` only and nested levels end up
+ * almost aligned with their parent. Give every nested list its own indent.
+ */
+.slidev-layout :is(ul, ol) :is(ul, ol) {
+  padding-left: 1.75em;
+}
+
 .slidev-layout li {
   margin: 0.35rem 0;
   line-height: 1.7;
