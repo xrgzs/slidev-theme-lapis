@@ -1,6 +1,6 @@
 {
   "name": "slidev-theme-lapis",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "A clean blue-toned theme for Slidev, ported from typora-theme-lapis",
   "keywords": [
